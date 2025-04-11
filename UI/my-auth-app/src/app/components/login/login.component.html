@@ -1,0 +1,12 @@
+<div class="auth-container">
+  <div class="auth-card" [@fadeSlideIn]>
+    <h2>Login</h2>
+    <form (ngSubmit)="login()">
+      <input type="text" placeholder="Username" [(ngModel)]="credentials.username" name="username" required />
+      <input type="password" placeholder="Password" [(ngModel)]="credentials.password" name="password" required />
+      <button type="submit" [@pulse]="buttonState" (mouseenter)="toggleButtonState()" (mouseleave)="toggleButtonState()">Login</button>
+    </form>
+    <p>Don’t have an account? <a routerLink="/register">Register</a></p>
+  </div>
+</div>
+<app-popup [message]="errorMessage" (closed)="closePopup()" *ngIf="errorMessage"></app-popup>

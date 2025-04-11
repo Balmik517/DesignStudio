@@ -1,0 +1,101 @@
+.auth-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+}
+
+.auth-card {
+  background: white;
+  padding: 2rem;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 400px;
+  text-align: center;
+}
+
+h2 {
+  margin-bottom: 1.5rem;
+  color: #333;
+  font-family: 'Poppins', sans-serif;
+}
+
+.input-wrapper {
+  position: relative;
+  margin: 0.5rem 0;
+}
+
+input {
+  width: 100%;
+  padding: 0.8rem;
+  border: 1px solid #ddd;
+  border-radius: 25px;
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+}
+
+input:focus {
+  outline: none;
+  border-color: #6e8efb;
+}
+
+input.ng-invalid.ng-touched {
+  border-color: #ff6b6b;
+}
+
+.error-tooltip {
+  display: none;
+  position: absolute;
+  top: -2.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #ff6b6b;
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  font-size: 0.9rem;
+  white-space: nowrap;
+  z-index: 10;
+}
+
+.input-wrapper:hover .error-tooltip {
+  display: block;
+}
+
+button {
+  width: 100%;
+  padding: 0.8rem;
+  margin-top: 1rem;
+  background: #6e8efb;
+  color: white;
+  border: none;
+  border-radius: 25px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+button:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+}
+
+button:hover:not(:disabled) {
+  background: #a777e3;
+}
+
+p {
+  margin-top: 1rem;
+  font-size: 0.9rem;
+}
+
+a {
+  color: #6e8efb;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}

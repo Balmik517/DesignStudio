@@ -1,0 +1,111 @@
+<div class="dashboard-wrapper">
+  <header class="dashboard-header">
+    <!-- Logo -->
+    <img src="assets/IDS.jpg" alt="Interior Design Studio Logo" class="logo" (error)="onLogoError($event)">
+
+    <!-- Navigation Sections -->
+    <ul class="nav-sections">
+      <li class="nav-item">
+        <a href="#" class="nav-link">Home</a>
+        <div class="nav-dropdown">
+          <ul>
+            <li><a href="#">Living Room</a></li>
+            <li><a href="#">Bedroom</a></li>
+            <li><a href="#">Kitchen</a></li>
+            <li><a href="#">Dining Room</a></li>
+          </ul>
+        </div>
+      </li>
+      <li class="nav-item">
+        <a href="#" class="nav-link">Office</a>
+        <div class="nav-dropdown">
+          <ul>
+            <li><a href="#">Workstations</a></li>
+            <li><a href="#">Conference Rooms</a></li>
+            <li><a href="#">Reception</a></li>
+            <li><a href="#">Breakout Areas</a></li>
+          </ul>
+        </div>
+      </li>
+      <li class="nav-item">
+        <a href="#" class="nav-link">Cafe</a>
+        <div class="nav-dropdown">
+          <ul>
+            <li><a href="#">Seating</a></li>
+            <li><a href="#">Tables</a></li>
+            <li><a href="#">Decor</a></li>
+            <li><a href="#">Lighting</a></li>
+          </ul>
+        </div>
+      </li>
+      <li class="nav-item">
+        <a href="#" class="nav-link">Studio <span class="new-badge">NEW</span></a>
+        <div class="nav-dropdown">
+          <ul>
+            <li><a href="#">Rooms</a></li>
+          </ul>
+        </div>
+      </li>
+    </ul>
+
+    <!-- Search Bar and Header Actions -->
+    <div class="header-right">
+      <div class="nav-search">
+        <mat-icon class="search-icon">search</mat-icon>
+        <input type="text" placeholder="Search for products and more" class="search-input">
+      </div>
+      <div class="header-actions">
+        <mat-icon class="action-icon" title="Notifications">notifications</mat-icon>
+        <mat-icon class="action-icon" title="Settings">settings</mat-icon>
+        <mat-icon class="action-icon" title="Help">help_outline</mat-icon>
+        <div class="profile-menu">
+          <div class="profile-icon" (click)="toggleProfileDropdown($event)">{{ getInitials() }}</div>
+          <div class="profile-dropdown" *ngIf="showProfileDropdown" [@fadeIn]>
+            <p>{{ username || 'Designer' }}</p>
+            <p class="user-info">Email: {{ email }}</p>
+            <button class="dropdown-btn" (click)="logout()">Logout</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="dashboard-main">
+    <!-- Banner Section -->
+    <section class="banner-section" [@fadeIn]>
+      <div class="banner-card">
+        <div class="banner-image">
+          <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=300&q=80" alt="Home Design" (error)="onBannerImageError($event, 'Home Design')">
+          <div class="banner-overlay">
+            <div class="banner-text">
+              <h2>Modern Home Designs</h2>
+              <a href="#" class="banner-cta">Explore</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="banner-card">
+        <div class="banner-image">
+          <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=300&q=80" alt="Office Design" (error)="onBannerImageError($event, 'Office Design')">
+          <div class="banner-overlay">
+            <div class="banner-text">
+              <h2>Professional Office Designs</h2>
+              <a href="#" class="banner-cta">Explore</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="banner-card">
+        <div class="banner-image">
+          <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=300&q=80" alt="Cafe Design" (error)="onBannerImageError($event, 'Cafe Design')">
+          <div class="banner-overlay">
+            <div class="banner-text">
+              <h2>Cozy Cafe Designs</h2>
+              <a href="#" class="banner-cta">Explore</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+</div>

@@ -1,0 +1,57 @@
+<div class="landing-page">
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Create. Collaborate. Innovate.</h1>
+      <p class="tagline">The world's first multi-disciplinary design collaboration platform</p>
+      <div class="cta-buttons">
+        <button mat-raised-button color="primary" routerLink="/register">Get Started</button>
+        <button mat-stroked-button color="primary" routerLink="/login">Login</button>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="floating-shapes">
+        <div class="shape graphic"></div>
+        <div class="shape industrial"></div>
+        <div class="shape fashion"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Design Categories Grid -->
+  <section class="categories">
+    <h2>Explore Interior Design Universes</h2>
+    <div class="category-grid">
+      <div *ngFor="let category of designCategories"
+           class="category-card"
+           [style.backgroundColor]="category.color">
+        <mat-icon>{{category.icon}}</mat-icon>
+        <h3>{{category.name}}</h3>
+      </div>
+    </div>
+  </section>
+
+  <!-- Interactive Demo Section -->
+  <section class="demo" [@fadeSlideIn]>
+    <h2>Experience Design Fusion</h2>
+    <div class="demo-container">
+      <div class="demo-visual">
+        <img [src]="demoImages[currentImageIndex].url"
+             [alt]="demoImages[currentImageIndex].alt"
+             (error)="onImageError($event)"
+             [@slideShow]="currentImageIndex">
+      </div>
+      <div class="demo-content">
+        <h3><mat-icon class="demo-icon">palette</mat-icon> Blend Interior Styles Seamlessly</h3>
+        <p>Transform spaces by combining home, office, and cafe design elements in real time.</p>
+        <button mat-raised-button class="demo-btn">View Case Study</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Final CTA -->
+  <section class="final-cta">
+    <h2>Ready to Redefine Design?</h2>
+    <button mat-raised-button color="accent">Join Creative Revolution</button>
+  </section>
+</div>

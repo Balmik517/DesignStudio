@@ -1,0 +1,17 @@
+<!-- <div class="popup-overlay" *ngIf="message">
+    <div class="popup-content">
+      <h2>Oops!</h2>
+      <p>{{ message }}</p>
+      <button (click)="close()">OK</button>
+    </div>
+  </div>
+
+   -->
+
+   <div class="popup-overlay" *ngIf="message">
+    <div class="popup-content" [ngClass]="{'success': isSuccess}">
+      <h2>{{ isSuccess ? 'Success!' : 'Oops!' }}</h2>
+      <p>{{ message }}</p>
+      <button (click)="close()">OK</button>
+    </div>
+  </div>

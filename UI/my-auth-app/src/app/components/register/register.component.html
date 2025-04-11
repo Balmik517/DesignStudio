@@ -1,0 +1,40 @@
+<div class="auth-container">
+  <div class="auth-card" [@fadeSlideIn]>
+    <h2>Register</h2>
+    <form [formGroup]="registerForm" (ngSubmit)="register()">
+      <div class="input-wrapper" [@staggerInputs]>
+        <input formControlName="firstName" type="text" placeholder="First Name" required />
+        <span class="error-tooltip" *ngIf="registerForm.get('firstName')?.invalid && registerForm.get('firstName')?.touched">
+          {{ getErrorMessage('firstName') }}
+        </span>
+      </div>
+      <div class="input-wrapper" [@staggerInputs]>
+        <input formControlName="lastName" type="text" placeholder="Last Name" required />
+        <span class="error-tooltip" *ngIf="registerForm.get('lastName')?.invalid && registerForm.get('lastName')?.touched">
+          {{ getErrorMessage('lastName') }}
+        </span>
+      </div>
+      <div class="input-wrapper" [@staggerInputs]>
+        <input formControlName="userName" type="text" placeholder="Username" required />
+        <span class="error-tooltip" *ngIf="registerForm.get('userName')?.invalid && registerForm.get('userName')?.touched">
+          {{ getErrorMessage('userName') }}
+        </span>
+      </div>
+      <div class="input-wrapper" [@staggerInputs]>
+        <input formControlName="email" type="email" placeholder="Email (Gmail only)" required />
+        <span class="error-tooltip" *ngIf="registerForm.get('email')?.invalid && registerForm.get('email')?.touched">
+          {{ getErrorMessage('email') }}
+        </span>
+      </div>
+      <div class="input-wrapper" [@staggerInputs]>
+        <input formControlName="password" type="password" placeholder="Password (Strong)" required />
+        <span class="error-tooltip" *ngIf="registerForm.get('password')?.invalid && registerForm.get('password')?.touched">
+          {{ getErrorMessage('password') }}
+        </span>
+      </div>
+      <button type="submit" [disabled]="registerForm.invalid" [@pulse]="buttonState" (mouseenter)="toggleButtonState()" (mouseleave)="toggleButtonState()">Register</button>
+    </form>
+    <p>Already have an account? <a routerLink="/login">Login</a></p>
+  </div>
+</div>
+<app-popup [message]="errorMessage || successMessage" [isSuccess]="!!successMessage" (closed)="closePopup()" *ngIf="errorMessage || successMessage"></app-popup>
